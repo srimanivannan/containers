@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ms-java8:
+    image: srimani/ms-java8:${VERSION:-latest}
+    build: &docker_build
+      context: .
+      args:
+        - VERSION
+  ms-java8-onbuild:
+    image: srimani/ms-java8:${VERSION:-latest}-onbuild
+    depends_on:
+      - ms-java8
+    build:
+      <<: *docker_build
+      dockerfile: resources/onbuild/Dockerfile

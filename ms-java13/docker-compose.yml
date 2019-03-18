@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ms-java13:
+    image: srimani/ms-java13:${VERSION:-latest}
+    build: &docker_build
+      context: .
+      args:
+        - VERSION
+  ms-java13-onbuild:
+    image: srimani/ms-java13:${VERSION:-latest}-onbuild
+    depends_on:
+      - ms-java13
+    build:
+      <<: *docker_build
+      dockerfile: resources/onbuild/Dockerfile

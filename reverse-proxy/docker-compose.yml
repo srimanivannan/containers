@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    reverseproxy:
+        image: reverseproxy
+        ports:
+            - 9000:9000
+        restart: always
+    emr:
+        depends_on:
+            - reverseproxy
+        image: emr-service:1.0
+        restart: always

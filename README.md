@@ -10,3 +10,5 @@ This is the image that can be used to deploy your spring based micro service and
 ### Container3: dev-exchange
 
 ### Container4: reverse-proxy
+
+### Container5: postgres

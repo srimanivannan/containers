@@ -1,0 +1,10 @@
+### Mountebank APIs
+GET http://localhost:2525/
+###
+GET http://localhost:2525/imposters
+###
+GET http://localhost:2525/config
+###
+GET http://localhost:2525/logs
+###
+GET http://localhost:8090

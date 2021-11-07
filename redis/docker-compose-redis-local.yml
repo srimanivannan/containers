@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  local-redis:
+    ports:
+      - "6379:6379"
+    image: redis
+    restart: always
+    volumes:
+      - $HOME/.cache/docker/vol/redis:/data
+    network_mode: bridge

@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  local-structurizr:
+    ports:
+      - "8086:8080"
+    image: structurizr/lite
+    restart: always
+    volumes:
+      - $HOME/.cache/docker/vol/structurizr:/usr/local/structurizr
+    network_mode: bridge

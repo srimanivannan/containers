@@ -1,4 +1,4 @@
-### How to build local docker?
+### How to build a local docker?
 
 #### Step1: Build docker image from the base docker?
 1. Create a Dockerfile

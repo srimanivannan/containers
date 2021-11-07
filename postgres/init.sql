@@ -1,2 +1,2 @@
-GRANT ALL PRIVILEGES ON DATABASE raminusdb TO raminus;
-CREATE SCHEMA IF NOT EXISTS local_spring_jpa_service_master AUTHORIZATION raminus
+GRANT ALL PRIVILEGES ON DATABASE domainspace TO rds_user;
+CREATE SCHEMA domainspace_service AUTHORIZATION rds_user;

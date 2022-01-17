@@ -10,4 +10,6 @@
 2. build the docker image from the Dockerfile using following command
     ``` docker build -t srimani/postgres:v1.0 .```
 3. Spin the local postgres docker container using the following command
-    ```  ```docker-compose -f docker-compose-postgresql-local.yml up -d
+    ```
+   docker-compose -f docker-compose-postgresql-local.yml up -d
+    ```

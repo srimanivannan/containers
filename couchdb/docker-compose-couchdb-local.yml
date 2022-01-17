@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  local-couchdb:
+    ports:
+      - "5984:5984"
+      - "5986:5986"
+    image: couchdb
+    restart: always
+    volumes:
+      - $HOME/.cache/docker/vol/couchdb:/opt/couchdb/data
+    network_mode: bridge
+    environment:
+      COUCHDB_PASSWORD: cpassword
+      COUCHDB_SECRET: csecret
+      COUCHDB_USER: admin

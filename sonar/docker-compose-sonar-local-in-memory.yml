@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  local-sonar:
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    restart: always
+    volumes:
+      - $HOME/.cache/docker/vol/sonar/data:/opt/sonarqube/data
+      - $HOME/.cache/docker/vol/sonar/extensions:/opt/sonarqube/extensions
+      - $HOME/.cache/docker/vol/sonar/logs:/opt/sonarqube/logs
+      - $HOME/.cache/docker/vol/sonar/temp:/opt/sonarqube/temp
+      - $HOME/.cache/docker/vol/sonar/conf:/opt/sonarqube/conf
+      - $HOME/.cache/docker/vol/sonar/bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+    network_mode: bridge
+    environment:
+      - SONARQUBE_ADMIN_PASSWORD=Really1

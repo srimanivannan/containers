@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  oracle21:
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    image: oracle/database:21.3.0-xe
+    volumes:
+      - $HOME/.cache/docker/vol/oracle/21/data:/opt/oracle/oradata
+    environment:
+      - ORACLE_SID=XE
+      - ORACLE_PWD=mani_Pwd1
+      - ORACLE_PDB=manipdb
+      - INIT_SGA_SIZE=2000
+      - INIT_PGA_SIZE=2000
+    network_mode: bridge

@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  local-artifactory:
+    ports:
+      - "5081:8081"
+      - "5082:8082"
+    image: docker.bintray.io/jfrog/artifactory-pro:latest
+    restart: always
+    volumes:
+      - $HOME/.cache/docker/vol/artifactory:/var/opt/jfrog/artifactory
+    network_mode: bridge

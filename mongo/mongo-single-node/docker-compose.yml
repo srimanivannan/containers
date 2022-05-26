@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: '3.6'
+services:
+  mongo-container:
+    image: mongo:latest
+    secrets:
+      - mongo_root_password
+      - mongo_domain_user_password
+    environment:
+        - MONGO_INITDB_ROOT_USERNAME=root # This will create root username
+        - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_root_password # This create the password fro root user takes it from the mongo_root_password
+        - MONGO_INITDB_DATABASE=admin # This will take admin as default database as admin is one of the default database
+        - MONGO_DOMAIN_USER_PASSWORD=/run/secrets/mongo_domain_user_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - $HOME/.cache/docker/vol/mongodbdata:/data/db
+      - ./init-settings.js:/docker-entrypoint-initdb.d/init-settings.js:ro #ro is linking as readonly
+    command: mongod
+    networks:
+      - mongocluster
+networks:
+  mongocluster:
+    driver: bridge
+secrets:
+  mongo_root_password:
+    file: mongo_root_password
+  mongo_domain_user_password:
+    file: mongo_domain_user_password
